@@ -9,9 +9,9 @@ interface ButtonProps extends TouchableOpacityProps {
   background: object
 }
 
-const GreetingsScreensButton = ({colorOfIcon, background}: ButtonProps) => {
+const GreetingsScreensButton = ({colorOfIcon, background, onPress}: ButtonProps) => {
   return(
-    <TouchableOpacity style={[styles.buttonWrapper, background]} onPress={() => {}}>
+    <TouchableOpacity style={[styles.buttonWrapper, background]} onPress={onPress}>
       <Icon style={styles.icon} name="arrow-right" color={colorOfIcon} size={20}/>
     </TouchableOpacity>
   )

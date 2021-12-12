@@ -1,12 +1,27 @@
 import React from "react";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { createStackNavigator } from "@react-navigation/stack";
 import { GreetingsPageOne } from "../pages/GreetingsPageOne";
 import { GreetingsPageTwo } from "../pages/GreetingsPageTwo";
 import { GreetingsPageThree } from "../pages/GreetingsPageThree";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { LoginScreen } from "../pages/LoginScreen";
+
+
+const Stack = createStackNavigator();
+function UserScreens() {
+  return(
+    <Stack.Navigator
+      screenOptions={{ headerShown: false }}
+    >
+      <Stack.Screen name="GreetingsScreen" component={GreetingsScreen}/>
+      <Stack.Screen name="LoginScreen" component={LoginScreen}/>
+    </Stack.Navigator>
+  )
+}
+
 
 const Tab = createMaterialTopTabNavigator();
-
 function GreetingsScreen() {
   return(
     <Tab.Navigator
@@ -58,8 +73,9 @@ function GreetingsScreen() {
             }
             }}
       />
+      {/*<Tab.Screen name="UserScreens" component={UserScreens}/>*/}
     </Tab.Navigator>
   )
 }
 
-export { GreetingsScreen }
+export { UserScreens }

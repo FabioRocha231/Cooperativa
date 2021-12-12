@@ -4,10 +4,11 @@ import {View, Image } from 'react-native';
 import { useFonts, Montserrat_600SemiBold, Montserrat_300Light } from "@expo-google-fonts/montserrat";
 
 import { styles } from "./styles";
+import { NavigationProps } from "../GreetingsPageOne";
 import { GreetingsTexts } from "../../components/GreetingsTextsComponent";
 import { GreetingsScreensButton } from "../../components/GreetingsScreensButton";
 
-const GreetingsPageTwo = () => {
+const GreetingsPageTwo: React.FC<NavigationProps> = ({navigation}) => {
   let [fontsLoaded, error] = useFonts({
     Montserrat_600SemiBold,
     Montserrat_300Light
@@ -19,7 +20,11 @@ const GreetingsPageTwo = () => {
     <View style={styles.container}>
         <Image style={styles.image} resizeMode={'cover'} source={require('../../assets/screen2.png')}/>
         <GreetingsTexts text="Conecte-se" subText="Encontre a Cooperativa mais perto rapidamente"/>
-        <GreetingsScreensButton colorOfIcon={"#FFFFFF"} background={{backgroundColor: "#4365FF"}}/>
+        <GreetingsScreensButton 
+          colorOfIcon={"#FFFFFF"} 
+          background={{backgroundColor: "#4365FF"}}
+          onPress={() => navigation.navigate('GreetingsThree')}
+        />
     </View>  
   )
 }
